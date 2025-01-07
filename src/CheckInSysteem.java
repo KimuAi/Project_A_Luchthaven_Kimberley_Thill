@@ -1,9 +1,16 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class CheckInSysteem {
+    private static int ticketNummerCounter = 1; // Start bij 1
     private ArrayList<Passagier> passagiers = new ArrayList<>();
     private ArrayList<Vliegtuig> vliegtuigen = new ArrayList<>();
     private ArrayList<Ticket> tickets = new ArrayList<>();
+
+    // Methode om een uniek ticketnummer te genereren
+    public int genereerTicketNummer() {
+        return ticketNummerCounter++;
+    }
 
     public void voegPassagierToe(Passagier passagier) {
         passagiers.add(passagier);
@@ -35,13 +42,24 @@ public class CheckInSysteem {
         return null;
     }
 
-    public boolean checkInPassagier(int ticketNummer) {
+    // Aangepaste checkInPassagier methode om ticketnummer als String te behandelen
+    public boolean checkInPassagier(String ticketNummer) {
         for (Ticket t : tickets) {
-            if (t.getTicketNummer() == ticketNummer) {
-                return true;
+            if (t.getTicketNummer().equals(ticketNummer)) { // Vergelijk ticketnummers als Strings
+                Passagier passagier = t.getPassagier();
+                double bagageGewicht = passagier.getBagageGewicht();
+                double maxGewicht = 35.0; // Aangepast naar 35 kg
+
+                if (bagageGewicht > maxGewicht) {
+                    System.out.println("Je bagage is te zwaar! Het maximale gewicht is " + maxGewicht + " kg.");
+                    return false; // Bagage is te zwaar, kan niet inchecken
+                } else {
+                    System.out.println("Je bagage is goedgekeurd voor check-in.");
+                    return true; // Bagage is goedgekeurd
+                }
             }
         }
-        return false;
+        return false; // Ticketnummer niet gevonden
     }
 
     public void toonAlleTickets() {
