@@ -9,8 +9,21 @@ public class Main {
         System.out.print("Ben je een werknemer? (Ja/Nee): ");
         String rol = scanner.nextLine();
 
+        do {
+            // De vraag wordt alleen herhaald als de invoer ongeldig is
+            if (!rol.equalsIgnoreCase("Ja") && !rol.equalsIgnoreCase("Nee")) {
+                System.out.println("Ongeldige invoer. Typ 'Ja' of 'Nee'.");
+                System.out.print("Ben je een werknemer? (Ja/Nee): ");
+                rol = scanner.nextLine();
+            } else {
+                // Als de invoer geldig is, breek je de lus & ga je nr de volgende
+                break;
+            }
+            // Dit zorgt ervoor dat de vraag maximaal één keer herhaald wordt
+        } while (true);
+
         if (rol.equalsIgnoreCase("Ja")) {
-            // Als de gebruiker een werknemer is, vraag naar hun informatie
+            // Verwerk de informatie van de werknemer
             System.out.print("Voer je naam in: ");
             String werknemerNaam = scanner.nextLine();
 
@@ -28,19 +41,15 @@ public class Main {
             System.out.print("Voer je adres in: ");
             String werknemerAdres = scanner.nextLine();
 
-            // Vraag naar het type werknemer (bijvoorbeeld piloot, stewardess of bagagepersoneel)
-            System.out.print("Wat is je functie? (piloot/stewardess/bagagepersoneel): ");
+            System.out.print("Wat is je functie? (piloot/stewardess/bagagepersoneel/Check-in): ");
             String functie = scanner.nextLine();
 
-            // Toon de werknemer informatie inclusief hun functie
-            System.out.println("Werknemer " + werknemerNaam + " van " + werknemerLeeftijd + " jaar en adres " + werknemerAdres + " met functie " + functie + " succesvol geregistreerd.");
+            System.out.println("Werknemer " + werknemerNaam + " van " + werknemerLeeftijd + " jaar en met de functie " + functie + " succesvol geregistreerd.");
 
-            // Afhankelijk van de functie van de werknemer, stel specifieke vragen
             switch (functie.toLowerCase()) {
                 case "piloot":
-                    // Als de gebruiker een piloot is, stel dan specifieke vragen
                     System.out.print("Geef het vluchtnummer: ");
-                    String vluchtnummer = scanner.nextLine();  // Verander naar String
+                    String vluchtnummer = scanner.nextLine();
 
                     System.out.print("Van welke luchthaven vertrek je? ");
                     String vertrek = scanner.nextLine();
@@ -48,7 +57,6 @@ public class Main {
                     System.out.print("Naar welke bestemming vlieg je? ");
                     String bestemming = scanner.nextLine();
 
-                    // Vluchtinformatie weergeven
                     System.out.println("De piloot heeft de vlucht " + vluchtnummer + " van " + vertrek + " naar " + bestemming + " toegewezen gekregen.");
                     break;
 
@@ -64,14 +72,13 @@ public class Main {
                     System.out.println("Onbekende functie. Probeer opnieuw.");
                     break;
             }
-
         } else if (rol.equalsIgnoreCase("Nee")) {
-            // Als de gebruiker geen werknemer is, is hij een passagier
             System.out.println("Welkom, passagier!");
         }
 
+
         while (true) {
-            System.out.println("\n--- Hoofdmenu ---");
+            System.out.println("\n---- Hoofdmenu ----");
             System.out.println("1. Voeg passagier toe");
             System.out.println("2. Voeg vliegtuig toe");
             System.out.println("3. Boek een ticket");
@@ -146,8 +153,16 @@ public class Main {
                             System.out.println("Er zijn 120 business stoelen beschikbaar.");
                         }
 
-                        System.out.print("Wil je een aisle seat of een window seat? ");
-                        String stoelType = scanner.nextLine();
+                        String stoelType;
+                        do {
+                            System.out.print("Wil je een aisle seat of een window seat? ");
+                            stoelType = scanner.nextLine();
+                            if (!stoelType.equalsIgnoreCase("aisle seat") && !stoelType.equalsIgnoreCase("window seat")) {
+                                System.out.println("U heeft een foute invoer gegeven, probeer het opnieuw.");
+                            }
+                        } while (!stoelType.equalsIgnoreCase("aisle seat") && !stoelType.equalsIgnoreCase("window seat"));
+
+
 
                         System.out.print("Voer vliegtuigcode in: ");
                         String ticketVliegtuigCode = scanner.nextLine();
@@ -207,6 +222,7 @@ public class Main {
 
                 case 5:
                     incheckSysteem.toonAlleTickets();
+
                     break;
 
                 case 6:

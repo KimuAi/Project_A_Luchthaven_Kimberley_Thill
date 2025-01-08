@@ -5,35 +5,37 @@ public class Werknemers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Vraag of de gebruiker een reiziger of een werknemer is
+        // Vraag of de gebruiker een werknemer is
         System.out.print("Ben je een werknemer? (Ja/Nee): ");
         String rol = scanner.nextLine();
 
+        // indien ja vraag hun informatie van de werknemer
         if (rol.equalsIgnoreCase("Ja")) {
+
             // Vraag naar naam, leeftijd en adres van de werknemer
             System.out.print("Wat is je naam? ");
             String naam = scanner.nextLine();
 
             System.out.print("Wat is je leeftijd? ");
             int leeftijd = scanner.nextInt();
-            scanner.nextLine(); // consume newline character
+            scanner.nextLine();
 
             System.out.print("Wat is je adres? ");
             String adres = scanner.nextLine();
 
             // Vraag de specifieke rol van de werknemer
-            System.out.print("Ben je een piloot, stewardess of bagagepersoneel? ");
+            System.out.print("Ben je een piloot, stewardess, bagagepersoneel of Check-in? ");
             String functie = scanner.nextLine();
 
             System.out.println("Werknemer: " + naam + ", Leeftijd: " + leeftijd );
 
-            // Afhankelijk van de functie van de werknemer
+            // Als het een piloot is gaan we hier verder (de switch case)
             switch (functie.toLowerCase()) {
                 case "piloot":
                     // Als de gebruiker een piloot is, krijgt hij specifieke vragen over de vlucht
                     System.out.print("Geef het vluchtnummer: ");
                     int vluchtnummer = scanner.nextInt();
-                    scanner.nextLine(); // consume newline character
+                    scanner.nextLine();
 
                     System.out.print("Van welke luchthaven vertrek je? ");
                     String vertrek = scanner.nextLine();

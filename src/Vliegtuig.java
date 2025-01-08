@@ -1,3 +1,4 @@
+// AtomicInteger voor veilige operaties
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Vliegtuig {

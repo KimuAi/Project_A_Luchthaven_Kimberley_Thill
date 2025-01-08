@@ -1,6 +1,5 @@
 public class Bagage {
     double gewicht;  // Gewicht van de tas in kg
-    double maat;     // Maat van de tas in m³ (kubieke meter)
 
     // Constante voor het maximale gewicht
     private static final double MAX_GEWICHT = 35.0;
@@ -15,12 +14,11 @@ public class Bagage {
             this.gewicht = gewicht;  // Gebruik het opgegeven gewicht als het kleiner of gelijk is aan het maximale gewicht
         }
 
-        this.maat = maat;  // Stel de maat van de tas in
     }
 
-    // ToString methode om de eigenschappen van de tas weer te geven
+    // ToString methode om de eigenschappen van de tas weer te geven (het gewicht)
     @Override
     public String toString() {
-        return "Gewicht: " + gewicht + "kg, Maat: " + maat + "m³";
+        return "Gewicht: " + gewicht + "kg";
     }
 }

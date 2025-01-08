@@ -1,18 +1,20 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Ticket {
     private static int ticketCounter = 1; // Teller voor het ticketnummer
-    private String ticketNummer;         // Ticketnummer als string
+    private String ticketNummer;
     private Passagier passagier;
     private String ticketKlasse;
     private Vliegtuig vliegtuig;
-    private String stoelType;            // Nieuw veld voor stoeltype (aisle/window)
+    private String stoelType;
 
     public Ticket(Passagier passagier, String ticketKlasse, Vliegtuig vliegtuig, String stoelType, String ticketNummer, double tasGewicht) {
-        // Genereer eenvoudig ticketnummer met een prefix en de tellerwaarde
+        // maakt een eenvoudig ticketnummer met een tellerwaarde (Opgezocht op google hoe dit moest)
         this.ticketNummer = "TKT" + String.format("%03d", ticketCounter++);
         this.passagier = passagier;
         this.ticketKlasse = ticketKlasse;
         this.vliegtuig = vliegtuig;
-        this.stoelType = stoelType;  // Stel stoelType in
+        this.stoelType = stoelType;
     }
 
     public String getTicketNummer() {
@@ -20,16 +22,17 @@ public class Ticket {
     }
 
     public Passagier getPassagier() {
-        return passagier;  // Getter voor de passagier
+        return passagier;
     }
 
-    // Aangepaste toString() om stoelType toe te voegen aan de ticketinformatie
+    // wat de uitgave voor na het maken van het ticket
     public String toString() {
         return "Ticketnummer: " + ticketNummer +
                 "\nPassagier: " + passagier.getNaam() +
                 "\nLeeftijd: " + passagier.getLeeftijd() +
                 "\nKlasse: " + ticketKlasse +
                 "\nVliegtuigcode: " + vliegtuig.getVliegtuigCode() +
-                "\nStoeltype: " + stoelType;  // Weergeeft het stoeltype
+                "\nStoeltype: " + stoelType;
     }
 }
+

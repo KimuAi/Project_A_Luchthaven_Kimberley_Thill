@@ -48,7 +48,7 @@ public class CheckInSysteem {
             if (t.getTicketNummer().equals(ticketNummer)) { // Vergelijk ticketnummers als Strings
                 Passagier passagier = t.getPassagier();
                 double bagageGewicht = passagier.getBagageGewicht();
-                double maxGewicht = 35.0; // Aangepast naar 35 kg
+                double maxGewicht = 35.0;
 
                 if (bagageGewicht > maxGewicht) {
                     System.out.println("Je bagage is te zwaar! Het maximale gewicht is " + maxGewicht + " kg.");
@@ -65,6 +65,7 @@ public class CheckInSysteem {
     public void toonAlleTickets() {
         for (Ticket t : tickets) {
             System.out.println(t);
+            System.out.println("____________________________");
         }
     }
 }
