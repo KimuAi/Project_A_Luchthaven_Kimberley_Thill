@@ -102,6 +102,12 @@ public class Main {
                     System.out.print("Voer naam van passagier in: ");
                     String naam = scanner.nextLine();
 
+                    // Herhaal als de invoer leeg is
+                    while (naam.trim().isEmpty()) {
+                        System.out.print("Naam mag niet leeg zijn. Probeer het opnieuw: ");
+                        naam = scanner.nextLine();
+                    }
+
                     int leeftijd;
                     while (true) {
                         System.out.print("Voer leeftijd in: ");
