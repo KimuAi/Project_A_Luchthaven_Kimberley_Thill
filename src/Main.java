@@ -134,7 +134,7 @@ public class Main {
                     System.out.print("Voer bestemming in: ");
                     String bestemmingVliegtuig = scanner.nextLine();
 
-                    // Aantal stoelen is nu hardgecodeerd
+
                     int economyStoelen = 100;
                     int businessStoelen = 20;
 
@@ -216,8 +216,8 @@ public class Main {
 
                 case 4:
                     System.out.print("Voer ticketnummer in: ");
-                    String ticketNummer = scanner.nextLine(); // Ticketnummer als string invoeren
-                    boolean ingecheckt = incheckSysteem.checkInPassagier(ticketNummer); // Aanpassen aan string
+                    String ticketNummer = scanner.nextLine();
+                    boolean ingecheckt = incheckSysteem.checkInPassagier(ticketNummer);
 
                     if (ingecheckt) {
                         System.out.println("Passagier succesvol ingecheckt.");

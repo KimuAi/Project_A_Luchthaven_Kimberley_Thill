@@ -11,7 +11,7 @@ public class Bagage {
             System.out.println("Waarschuwing: Het gewicht van de tas is te groot. Het wordt beperkt tot " + MAX_GEWICHT + " kg.");
             this.gewicht = MAX_GEWICHT;  // Stel het gewicht in op het maximale gewicht
         } else {
-            this.gewicht = gewicht;  // Gebruik het opgegeven gewicht als het kleiner of gelijk is aan het maximale gewicht
+            this.gewicht = gewicht;  // Gebruik het opgegeven gewicht en kijkt als het kleiner of gelijk is aan het maximale gewicht
         }
 
     }

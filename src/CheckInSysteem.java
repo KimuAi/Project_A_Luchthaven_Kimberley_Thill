@@ -45,7 +45,7 @@ public class CheckInSysteem {
     // Aangepaste checkInPassagier methode om ticketnummer als String te behandelen
     public boolean checkInPassagier(String ticketNummer) {
         for (Ticket t : tickets) {
-            if (t.getTicketNummer().equals(ticketNummer)) { // Vergelijk ticketnummers als Strings
+            if (t.getTicketNummer().equals(ticketNummer)) {
                 Passagier passagier = t.getPassagier();
                 double bagageGewicht = passagier.getBagageGewicht();
                 double maxGewicht = 35.0;
