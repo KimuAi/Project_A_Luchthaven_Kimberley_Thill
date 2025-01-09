@@ -1,6 +1,19 @@
 import java.util.Scanner;
 
+/**
+ * De Main klasse bevat de hoofdfunctionaliteit van het programma.
+ * Het verwerkt de interactie met de gebruiker en voert verschillende
+ * acties uit zoals het registreren van werknemers en passagiers,
+ * boeken van tickets en inchecken van passagiers.
+ */
 public class Main {
+
+    /**
+     * Het main method is het startpunt van het programma.
+     * Het vraagt de gebruiker om zijn/haar rol en voert de juiste actie uit op basis van de keuze.
+     *
+     * @param args De command-line argumenten (niet gebruikt in deze applicatie).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CheckInSysteem incheckSysteem = new CheckInSysteem();
@@ -16,7 +29,7 @@ public class Main {
                 System.out.print("Ben je een werknemer? (Ja/Nee): ");
                 rol = scanner.nextLine();
             } else {
-                // Als de invoer geldig is, breek je de lus & ga je nr de volgende
+                // Als de invoer geldig is, breek je de lus & ga je naar de volgende
                 break;
             }
             // Dit zorgt ervoor dat de vraag maximaal één keer herhaald wordt
@@ -76,7 +89,7 @@ public class Main {
             System.out.println("Welkom, passagier!");
         }
 
-
+        // Hoofdmenu voor het programma
         while (true) {
             System.out.println("\n---- Hoofdmenu ----");
             System.out.println("1. Voeg passagier toe");
@@ -134,7 +147,6 @@ public class Main {
                     System.out.print("Voer bestemming in: ");
                     String bestemmingVliegtuig = scanner.nextLine();
 
-
                     int economyStoelen = 100;
                     int businessStoelen = 20;
 
@@ -167,8 +179,6 @@ public class Main {
                                 System.out.println("U heeft een foute invoer gegeven, probeer het opnieuw.");
                             }
                         } while (!stoelType.equalsIgnoreCase("aisle seat") && !stoelType.equalsIgnoreCase("window seat"));
-
-
 
                         System.out.print("Voer vliegtuigcode in: ");
                         String ticketVliegtuigCode = scanner.nextLine();
